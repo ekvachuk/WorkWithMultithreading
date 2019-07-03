@@ -41,11 +41,13 @@ public class FileManagerservice {
     }
 
     public static void writeDataToFile (ConnectionData connectionData, boolean append) {
+
         try ( FileWriter fileWriter = new FileWriter(filePath, append)) {
            fileWriter.write(connectionData.getSessionId() + " " + connectionData.getTime() + " "
                             + connectionData.getIp() + " " + connectionData.getUserLogin() + "\n");
            fileWriter.flush();
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
     }
